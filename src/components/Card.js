@@ -18,5 +18,5 @@ const CharacterCard = styled.article`
   margin: 20px auto;
   border: 3px solid black;
   border-radius: 10px;
-  width: 300px;
+  width: 400px;
 `;
