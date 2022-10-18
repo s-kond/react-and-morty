@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 export default function NavBar() {
   return (
-    <Navbar>
+    <StyledNav>
       <div></div>
       <div></div>
       <div></div>
       <div></div>
-    </Navbar>
+    </StyledNav>
   );
 }
 
-const Navbar = styled.nav`
+const StyledNav = styled.nav`
   display: flex;
   position: fixed;
   bottom: 0;

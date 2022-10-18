@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 export default function Header() {
   return (
-    <Head>
+    <StyledHeader>
       <h1>React and Morty</h1>
-    </Head>
+    </StyledHeader>
   );
 }
 
-const Head = styled.header`
+const StyledHeader = styled.header`
   width: 100%;
   padding: 10px;
   color: white;
