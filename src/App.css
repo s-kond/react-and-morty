@@ -2,21 +2,6 @@
   text-align: center;
 }
 
-header {
-  width: 100%;
-  padding: 10px;
-  color: white;
-  background-color: blueviolet;
-}
-
-.card {
-  padding: 20px;
-  margin: 20px auto;
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 300px;
-}
-
 nav {
   display: flex;
   position: fixed;

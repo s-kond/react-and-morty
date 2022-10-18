@@ -1,27 +1,16 @@
 import "./App.css";
+import Header from "./components/Header";
+import Card from "./components/Card";
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>React and Morty</h1>
-      </header>
+      <Header />
       <div className="list">
-        <article className="card">
-          <img
-            src="https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-            alt="character"
-          />
-          <p>Morty Smith</p>
-          <button>Show more</button>
-        </article>
+        <Card />
       </div>
-      <nav>
-        <div className="icon"></div>
-        <div className="icon"></div>
-        <div className="icon"></div>
-        <div className="icon"></div>
-      </nav>
+      <NavBar />
     </div>
   );
 }
