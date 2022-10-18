@@ -1,25 +1,21 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function Card({ cardData }) {
-  const { id, name, image, status, species, location, origin } = cardData;
-  const [toggle, setToggle] = useState(false);
+  const { id, name, image } = cardData;
+  const navigate = useNavigate();
   return (
     <CharacterCard key={id}>
       <img src={image} alt="character" />
       <Name>{name}</Name>
-      <StyledButton onClick={() => setToggle(!toggle)}>Show more</StyledButton>
-      <Details style={{ display: toggle ? "unset" : "none" }}>
-        <li>Status: {status}</li>
-        <li>Species: {species}</li>
-        <li>Location: {location.name}</li>
-        <li>Origin: {origin.name}</li>
-      </Details>
+      <StyledButton onClick={() => navigate(`/details/${id}`)}>
+        Show more
+      </StyledButton>
     </CharacterCard>
   );
 }
 
-const CharacterCard = styled.article`
+export const CharacterCard = styled.article`
   padding: 20px;
   margin: 20px auto;
   border: 3px solid black;
@@ -36,15 +32,6 @@ const StyledButton = styled.button`
   padding: 5px;
 `;
 
-const Details = styled.ul`
-  margin-top: 10px;
-  list-style: none;
-
-  li {
-    margin-bottom: 5px;
-  }
-`;
-
-const Name = styled.p`
+export const Name = styled.p`
   margin: 20px auto;
 `;
