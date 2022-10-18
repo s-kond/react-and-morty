@@ -1,8 +1,8 @@
 import "./App.css";
-import Header from "./components/Header";
-import CardList from "./components/CardList";
-import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import CardDetails from "./pages/CardDetails";
 
 function App() {
   const [cardArray, setCardArray] = useState([]);
@@ -23,11 +23,13 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <Header />
-      <CardList cardDataArray={cardArray} />
-      <NavBar />
-    </div>
+    <Routes>
+      <Route index path="/" element={<Home cardArray={cardArray} />} />
+      <Route
+        path="/details/:id"
+        element={<CardDetails cardArray={cardArray} />}
+      />
+    </Routes>
   );
 }
 
