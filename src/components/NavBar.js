@@ -3,10 +3,10 @@ import styled from "styled-components";
 export default function NavBar() {
   return (
     <Navbar>
-      <div className="icon"></div>
-      <div className="icon"></div>
-      <div className="icon"></div>
-      <div className="icon"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </Navbar>
   );
 }
