@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import CardDetails from "./pages/CardDetails";
+import Layout from "./components/Layout";
 
 function App() {
   const [cardArray, setCardArray] = useState([]);
@@ -24,11 +25,17 @@ function App() {
 
   return (
     <Routes>
-      <Route index path="/" element={<Home cardArray={cardArray} />} />
-      <Route
-        path="/details/:id"
-        element={<CardDetails cardArray={cardArray} />}
-      />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home cardArray={cardArray} />} />
+        <Route
+          path="details/:id"
+          element={<CardDetails cardArray={cardArray} />}
+        />
+        <Route
+          path="/*"
+          element={<h1>Diese Seite existiert leider nicht.</h1>}
+        />
+      </Route>
     </Routes>
   );
 }

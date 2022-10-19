@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
     <StyledNav>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+      <StyledNavLink to="/">Home</StyledNavLink>
+      <StyledNavLink to="/a">Favs</StyledNavLink>
+      <StyledNavLink to="/b"></StyledNavLink>
+      <StyledNavLink to="/c"></StyledNavLink>
     </StyledNav>
   );
 }
@@ -20,11 +21,21 @@ const StyledNav = styled.nav`
   justify-content: space-around;
   align-items: center;
   background-color: blueviolet;
+`;
 
-  div {
-    content: " ";
-    padding: 30px;
-    background-color: white;
-    border-radius: 100%;
+const StyledNavLink = styled(NavLink)`
+  content: " ";
+  padding: 30px;
+  background-color: white;
+  border-radius: 100%;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &.active {
+    background-color: lightgrey;
   }
 `;
