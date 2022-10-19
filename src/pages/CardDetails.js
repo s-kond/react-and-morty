@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { CharacterCard, Name } from "../components/Card";
+import { UserContext } from "../util/UserContext";
+import { useContext } from "react";
 
-export default function CardDetails({ cardArray }) {
+export default function CardDetails() {
   const { id } = useParams();
+  const { cardArray } = useContext(UserContext);
   const selectedCard = cardArray.filter((item) => item.id === +id);
   const { name, image, status, species, location, origin } = selectedCard[0];
 
