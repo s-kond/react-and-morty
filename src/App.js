@@ -38,11 +38,8 @@ function App() {
     <UserContext.Provider value={{ cardArray, handleAddFav }}>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Home cardArray={cardArray} />} />
-          <Route
-            path="/details/:id"
-            element={<CardDetails cardArray={cardArray} />}
-          />
+          <Route path="/" element={<Home />} />
+          <Route path="/details/:id" element={<CardDetails />} />
           <Route
             path="/*"
             element={<h1>Diese Seite existiert leider nicht.</h1>}
