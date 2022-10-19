@@ -28,14 +28,14 @@ function App() {
   function handleAddFav(id, card) {
     let check = favArray.filter((item) => item.id === id);
     if (check.length > 0) {
-      return;
+      setFavArray(favArray.filter((item) => item.id !== id));
     } else {
       setFavArray([card, ...favArray]);
     }
   }
 
   return (
-    <UserContext.Provider value={{ cardArray, handleAddFav }}>
+    <UserContext.Provider value={{ cardArray, favArray, handleAddFav }}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
