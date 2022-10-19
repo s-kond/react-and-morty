@@ -5,10 +5,13 @@ import { Routes, Route } from "react-router-dom";
 import CardDetails from "./pages/CardDetails";
 import Layout from "./components/Layout";
 import { UserContext } from "./util/UserContext";
+import { loadLocalStorage, setLocalStorage } from "./util/localStorage";
 
 function App() {
   const [cardArray, setCardArray] = useState([]);
-  const [favArray, setFavArray] = useState([]);
+  const [favArray, setFavArray] = useState(
+    loadLocalStorage("FavoriteMortyCharacters") ?? []
+  );
 
   useEffect(() => {
     const apiURL = "https://rickandmortyapi.com/api/character";
@@ -24,6 +27,10 @@ function App() {
     }
     fetchData(apiURL);
   }, []);
+
+  useEffect(() => {
+    setLocalStorage("FavoriteMortyCharacters", favArray);
+  }, [favArray]);
 
   function handleAddFav(id, card) {
     let check = favArray.filter((item) => item.id === id);

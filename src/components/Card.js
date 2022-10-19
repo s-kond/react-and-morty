@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { UserContext } from "../util/UserContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 
 export default function Card({ cardData }) {
@@ -10,14 +10,16 @@ export default function Card({ cardData }) {
   const { handleAddFav, favArray } = useContext(UserContext);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    changeFavColor(id);
+  }, [favArray]);
+
   function changeFavColor(id) {
     let check = favArray.filter((item) => item.id === id);
-    console.log(check);
-    console.log(check.length);
     if (check.length === 0) {
-      setFavButtonColor("lightgreen");
-    } else if (check.length === 1) {
       setFavButtonColor("white");
+    } else if (check.length === 1) {
+      setFavButtonColor("lightgreen");
     }
   }
 
@@ -30,7 +32,6 @@ export default function Card({ cardData }) {
       </StyledButton>
       <FavButton
         onClick={() => {
-          changeFavColor(id);
           handleAddFav(id, cardData);
         }}
         style={{ backgroundColor: favButtonColor }}
