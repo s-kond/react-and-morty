@@ -9,7 +9,9 @@ import { loadLocalStorage, setLocalStorage } from "./util/localStorage";
 import Favorites from "./pages/Favorites";
 
 function App() {
-  const [cardArray, setCardArray] = useState([]);
+  const [cardArray, setCardArray] = useState(
+    loadLocalStorage("MortyCharacters") ?? []
+  );
   const [favArray, setFavArray] = useState(
     loadLocalStorage("FavoriteMortyCharacters") ?? []
   );
@@ -31,6 +33,7 @@ function App() {
 
   useEffect(() => {
     setLocalStorage("FavoriteMortyCharacters", favArray);
+    setLocalStorage("MortyCharacters", cardArray);
   }, [favArray]);
 
   function handleAddFav(id, card) {
