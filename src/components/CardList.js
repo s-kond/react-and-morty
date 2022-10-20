@@ -1,8 +1,12 @@
+import { useContext } from "react";
+import { UserContext } from "../util/UserContext";
 import Card from "./Card";
-export default function CardList({ cardDataArray }) {
+
+export default function CardList() {
+  const { cardArray } = useContext(UserContext);
   return (
     <div>
-      {cardDataArray.map((card) => {
+      {cardArray.map((card) => {
         return <Card key={card.id} cardData={card} />;
       })}
     </div>

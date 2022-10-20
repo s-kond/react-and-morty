@@ -5,7 +5,7 @@ export default function NavBar() {
   return (
     <StyledNav>
       <StyledNavLink to="/">Home</StyledNavLink>
-      <StyledNavLink to="/a">Favs</StyledNavLink>
+      <StyledNavLink to="/favorites">Favs</StyledNavLink>
       <StyledNavLink to="/b"></StyledNavLink>
       <StyledNavLink to="/c"></StyledNavLink>
     </StyledNav>
