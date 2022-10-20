@@ -1,26 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { UserContext } from "../util/UserContext";
-import { useContext, useEffect } from "react";
-import { useState } from "react";
 
 export default function Card({ cardData }) {
-  const [favButtonColor, setFavButtonColor] = useState("white");
   const { id, name, image } = cardData;
-  const { handleAddFav, favArray } = useContext(UserContext);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    function changeFavColor(id) {
-      let check = favArray.filter((item) => item.id === id);
-      if (check.length === 0) {
-        setFavButtonColor("white");
-      } else if (check.length === 1) {
-        setFavButtonColor("lightgreen");
-      }
-    }
-    changeFavColor(id);
-  }, [favArray]);
 
   return (
     <CharacterCard key={id}>
@@ -29,12 +12,6 @@ export default function Card({ cardData }) {
       <StyledButton onClick={() => navigate(`/details/${id}`)}>
         Show more
       </StyledButton>
-      <FavButton
-        onClick={() => {
-          handleAddFav(id, cardData);
-        }}
-        style={{ backgroundColor: favButtonColor }}
-      ></FavButton>
     </CharacterCard>
   );
 }
@@ -55,21 +32,6 @@ export const CharacterCard = styled.article`
 const StyledButton = styled.button`
   margin-bottom: 20px;
   padding: 5px;
-`;
-
-const FavButton = styled.button`
-  position: absolute;
-  top: -20px;
-  right: -10px;
-  border: 1px solid black;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-
-  &:hover {
-    background-color: lightgrey;
-    cursor: pointer;
-  }
 `;
 
 export const Name = styled.p`
