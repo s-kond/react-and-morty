@@ -6,6 +6,7 @@ import CardDetails from "./pages/CardDetails";
 import Layout from "./components/Layout";
 import { UserContext } from "./util/UserContext";
 import { loadLocalStorage, setLocalStorage } from "./util/localStorage";
+import Favorites from "./pages/Favorites";
 
 function App() {
   const [cardArray, setCardArray] = useState([]);
@@ -47,6 +48,7 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/details/:id" element={<CardDetails />} />
+          <Route path="/favorites" element={<Favorites />} />
           <Route
             path="/*"
             element={<h1>Diese Seite existiert leider nicht.</h1>}
