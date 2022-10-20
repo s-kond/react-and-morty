@@ -48,12 +48,12 @@ function App() {
   return (
     <UserContext.Provider value={{ cardArray, favArray, handleAddFav }}>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/details/:id" element={<CardDetails />} />
-          <Route path="/favorites" element={<Favorites />} />
+        <Route path="/" element={<Layout />}>
+          <Route index path="home" element={<Home />} />
+          <Route path="details/:id" element={<CardDetails />} />
+          <Route path="favorites" element={<Favorites />} />
           <Route
-            path="/*"
+            path="*"
             element={<h1>Diese Seite existiert leider nicht.</h1>}
           />
         </Route>

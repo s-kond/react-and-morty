@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom";
 export default function NavBar() {
   return (
     <StyledNav>
-      <StyledNavLink to="/">Home</StyledNavLink>
+      <StyledNavLink to="/home">Home</StyledNavLink>
       <StyledNavLink to="/favorites">Favs</StyledNavLink>
-      <StyledNavLink to="/b"></StyledNavLink>
-      <StyledNavLink to="/c"></StyledNavLink>
+      {/* <StyledNavLink to="/b"></StyledNavLink>
+      <StyledNavLink to="/c"></StyledNavLink> */}
     </StyledNav>
   );
 }
