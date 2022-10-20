@@ -11,17 +11,16 @@ export default function Card({ cardData }) {
   const navigate = useNavigate();
 
   useEffect(() => {
+    function changeFavColor(id) {
+      let check = favArray.filter((item) => item.id === id);
+      if (check.length === 0) {
+        setFavButtonColor("white");
+      } else if (check.length === 1) {
+        setFavButtonColor("lightgreen");
+      }
+    }
     changeFavColor(id);
   }, [favArray]);
-
-  function changeFavColor(id) {
-    let check = favArray.filter((item) => item.id === id);
-    if (check.length === 0) {
-      setFavButtonColor("white");
-    } else if (check.length === 1) {
-      setFavButtonColor("lightgreen");
-    }
-  }
 
   return (
     <CharacterCard key={id}>
